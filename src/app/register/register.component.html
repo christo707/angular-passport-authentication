@@ -1,0 +1,73 @@
+<div class="background">
+  <div class="wrapper">
+<mat-card class="register-card mat-elevation-z24">
+
+  <div class="card-header" >
+
+    <div class="card-title font"><strong>Register</strong></div>
+
+  </div>
+  <br>
+
+  <mat-card-content>
+    <form class="register-form" [formGroup]="registerationForm" (ngSubmit)="onFormSubmit()">
+
+    <table class="register-full-width" cellspacing="0">
+    <tr>
+      <td>
+          <mat-form-field class="register-full-width">
+             <mat-label>Email Please</mat-label>
+            <input matInput  #email name="email" autocomplete="off" formControlName="emailFormControl" [(ngModel)]="useremail" >
+            <mat-error *ngIf="registerationForm.controls['emailFormControl'].hasError('email') && !registerationForm.controls['emailFormControl'].hasError('required')">
+            Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="registerationForm.controls['emailFormControl'].hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+      </td>
+    </tr>
+    <br>
+
+<br>
+<tr>
+  <td>
+    <mat-form-field class="register-full-width">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="*******" autocomplete="off" #password name="password" formControlName="passwordFormControl" [(ngModel)]="userpassword"  >
+      <mat-error *ngIf="registerationForm.controls['passwordFormControl'].hasError('required')">
+       Password is <strong>required</strong>
+      </mat-error>
+  </mat-form-field>
+</td>
+</tr>
+    </table>
+  <br>
+  <br>
+  <div style="text-align: center; padding: 10px;">
+    <button mat-raised-button color="primary" [disabled]="!registerationForm.valid" type="submit"><span class="button-font"> Enter </span></button>
+</div>
+    </form>
+    <div style="text-align: center; padding: 10px;">
+      <span class="font1"> Or Login with </span>
+  </div>
+  <div style="text-align: center; padding: 10px; width: 200px; margin-left: 25%;display: flex;
+ justify-content: space-between;">
+
+      <a>
+        <img class="social-logo" src="../assets/images/fb.svg">
+    </a>
+
+    <a>
+      <img class="social-logo" src="../assets/images/gplus.svg">
+  </a>
+
+      <a>
+        <img class="social-logo" src="../assets/images/github.svg">
+      </a>
+
+</div>
+  </mat-card-content>
+</mat-card>
+</div>
+</div>
